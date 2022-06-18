@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.bridgelabz.interfaces.IFarmerDetails;
 import com.bridgelabz.model.FarmerDetails;
 import com.bridgelabz.model.LandDetails;
+import com.bridgelabz.model.ProfitAndLostDetails;
 
 public class FarmerDetailsImpl implements IFarmerDetails {
 
@@ -34,17 +35,22 @@ public class FarmerDetailsImpl implements IFarmerDetails {
 	}
 
 	@Override
-	public void addLandDetails(double area, int surveNo, String landType, String crop, FarmerDetails farmerDetails) {
-		LandDetails landDetails = new LandDetails(area, surveNo, landType, crop);
+	public void addLandDetails(double area, int surveNo, String landType, FarmerDetails farmerDetails) {
+		LandDetails landDetails = new LandDetails(area, surveNo, landType);
 		farmerDetails.getListOflandDetails().add(landDetails);
 		System.out.println(listOfFarmer);
 	}
 
 	@Override
-	public void addCrop(String name, int surveNo, String crop) {
+	public void addCrop(String name, int surveNo, String crop, double investCost, double incomeCost) {
 		LandDetails landDetails = getLandDetails(surveNo, name);
-		ArrayList<String> crops = landDetails.getCrops();
-		crops.add(crop);
+		ArrayList<ProfitAndLostDetails> crops = landDetails.getProfitAndLostDetails();
+		ProfitAndLostDetails profitAndLostDetail = new ProfitAndLostDetails();
+		profitAndLostDetail.setCrop(crop);
+		profitAndLostDetail.setIncomeCost(incomeCost);
+		profitAndLostDetail.setInvestCost(investCost);
+		profitAndLostDetail.setTotalCost(incomeCost-investCost);
+		crops.add(profitAndLostDetail);
 		System.out.println(listOfFarmer);
 	}
 	

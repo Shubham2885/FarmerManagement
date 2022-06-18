@@ -7,14 +7,13 @@ public class LandDetails {
 	private double area;
 	private int surveNo;
 	private String landType;
-	private ArrayList<String> crops;
-	public LandDetails(double area, int surveNo, String landType, String crop) {
+	private ArrayList<ProfitAndLostDetails> profitAndLostDetails;
+	public LandDetails(double area, int surveNo, String landType) {
 		super();
 		this.area = area;
 		this.surveNo = surveNo;
 		this.landType = landType;
-		this.crops = new ArrayList<String>();
-		this.crops.add(crop);
+		this.profitAndLostDetails = new ArrayList<ProfitAndLostDetails>();
 	}
 	public double getArea() {
 		return area;
@@ -34,15 +33,16 @@ public class LandDetails {
 	public void setLandType(String landType) {
 		this.landType = landType;
 	}
-	public ArrayList<String> getCrops() {
-		return crops;
+	public ArrayList<ProfitAndLostDetails> getProfitAndLostDetails() {
+		return profitAndLostDetails;
 	}
-	public void setCrops(ArrayList<String> crops) {
-		this.crops = crops;
+	public void setProfitAndLostDetails(ArrayList<ProfitAndLostDetails> profitAndLostDetails) {
+		this.profitAndLostDetails = profitAndLostDetails;
 	}
 	@Override
 	public String toString() {
-		return "LandDetails [area=" + area + ", surveNo=" + surveNo + ", landType=" + landType + ", crops=" + crops
-				+ "]";
+		return "LandDetails [area=" + area + ", surveNo=" + surveNo + ", landType=" + landType
+				+ ", profitAndLostDetails=" + profitAndLostDetails + "]";
 	}
+	
 }

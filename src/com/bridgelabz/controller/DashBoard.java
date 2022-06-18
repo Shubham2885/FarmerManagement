@@ -46,7 +46,7 @@ public class DashBoard {
 				String landType = scanner.next();
 				System.out.println("Enter crop");
 				String crop = scanner.next();
-				details.addLandDetails(area, surveNo, landType, crop, farmerDetails);
+				details.addLandDetails(area, surveNo, landType, farmerDetails);
 				break;
 				
 			case 3:
@@ -56,8 +56,12 @@ public class DashBoard {
 				surveNo = scanner.nextInt();
 				System.out.println("Enter crop");
 				crop = scanner.next();
+				System.out.println("Enter investCost");
+				double investCost = scanner.nextDouble();
+				System.out.println("Enter incomeCost");
+				double incomeCost = scanner.nextDouble();
 				
-				details.addCrop(name, surveNo, crop);
+				details.addCrop(name, surveNo, crop, investCost, incomeCost);
 				break;
 			default:
 				break;
